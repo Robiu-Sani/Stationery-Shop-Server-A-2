@@ -8,6 +8,7 @@ main();
 async function main() {
   try {
     await mongoose.connect(config.database_url as string);
+    console.log("connecting mongodb successfull");
   } catch (err) {
     console.log(err);
   }
