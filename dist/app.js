@@ -4,8 +4,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
+const cors_1 = __importDefault(require("cors"));
+const Products_route_1 = require("./Products/Products.route");
 const app = (0, express_1.default)();
-app.get("/", (req, res) => {
-    res.send("Hello World!");
+//parser
+app.use(express_1.default.json());
+app.use((0, cors_1.default)());
+//applycation routes
+app.use('/api', Products_route_1.StudentRoute);
+app.get('/', (req, res) => {
+    res.send('Steshonary shop server is running!');
 });
 exports.default = app;

@@ -1,6 +1,6 @@
-import mongoose from "mongoose";
-import app from "./app";
-import config from "./config";
+import mongoose from 'mongoose';
+import app from './app';
+import config from './config';
 
 main();
 // .catch((err) => console.log(err));
@@ -8,7 +8,6 @@ main();
 async function main() {
   try {
     await mongoose.connect(config.database_url as string);
-    console.log("connecting mongodb successfull");
   } catch (err) {
     console.log(err);
   }
