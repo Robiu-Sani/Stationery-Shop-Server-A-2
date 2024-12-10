@@ -23,17 +23,14 @@ const getOrderIntoDB = () => __awaiter(void 0, void 0, void 0, function* () {
     return result;
 });
 const totalRevenueIntoDB = () => __awaiter(void 0, void 0, void 0, function* () {
-    // const result = await OrderModel.aggregate([
-    //   {
-    //     $group: {
-    //       _id: null,
-    //       totalRevenue: { $sum: '$totalPrice' },
-    //     },
-    //   },
-    // ]);
-    const result = {
-        name: 'test',
-    };
+    const result = yield Order_model_1.default.aggregate([
+        {
+            $group: {
+                _id: null,
+                totalRevenue: { $sum: '$totalPrice' },
+            },
+        },
+    ]);
     return result;
 });
 const getSingleOrderIntoDB = (id) => __awaiter(void 0, void 0, void 0, function* () {

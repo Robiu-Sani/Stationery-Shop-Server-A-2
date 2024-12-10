@@ -69,7 +69,7 @@ const totalRevinew = (req, res) => __awaiter(void 0, void 0, void 0, function* (
         const data = yield Order_services_1.OrdersServices.totalRevenueIntoDB();
         res.json({
             status: true,
-            message: 'this is total revienow',
+            message: 'Revenue calculated successfully',
             data,
         });
     }
