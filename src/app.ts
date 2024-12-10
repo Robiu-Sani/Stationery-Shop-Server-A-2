@@ -1,6 +1,7 @@
 import express, { Application, Request, Response } from 'express';
 import cors from 'cors';
-import { StudentRoute } from './Products/Products.route';
+import { ProductRoute } from './Products/Products.route';
+import { OrderRoute } from './Order/Order.route';
 const app: Application = express();
 
 //parser
@@ -8,7 +9,8 @@ app.use(express.json());
 app.use(cors());
 
 //applycation routes
-app.use('/api', StudentRoute);
+app.use('/api', ProductRoute);
+app.use('/api', OrderRoute);
 
 app.get('/', (req: Request, res: Response) => {
   res.send('Steshonary shop server is running!');

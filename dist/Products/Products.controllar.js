@@ -12,11 +12,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const Products_services_1 = require("./Products.services");
 const createProducts = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const product = req.body;
-        const data = Products_services_1.ProductsServices.createProductIntoDB(product);
+        const postProduct = req.body;
+        const data = yield Products_services_1.ProductsServices.createProductIntoDB(postProduct);
         res.json({
             success: true,
             message: 'Product created successfully',
+            //   sendingData: postProduct,
             data,
         });
     }
@@ -30,10 +31,66 @@ const createProducts = (req, res) => __awaiter(void 0, void 0, void 0, function*
 });
 const getProducts = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const data = Products_services_1.ProductsServices.getProductIntoDB();
+        const data = yield Products_services_1.ProductsServices.getProductIntoDB();
         res.json({
-            success: true,
-            message: 'Product created successfully',
+            status: true,
+            message: 'Products retrieved successfully',
+            data,
+        });
+    }
+    catch (err) {
+        res.json({
+            success: false,
+            message: 'Product created failed',
+            err,
+        });
+    }
+});
+const getSingleProducts = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const productId = req.body.productId;
+        const data = yield Products_services_1.ProductsServices.getSingleProductIntoDB(productId);
+        res.json({
+            status: true,
+            message: 'Products retrieved successfully',
+            data,
+        });
+    }
+    catch (err) {
+        res.json({
+            success: false,
+            message: 'Product created failed',
+            err,
+        });
+    }
+});
+const putSingleProducts = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const productId = req.body.productId;
+        const updateData = req.body;
+        const data = yield Products_services_1.ProductsServices.putSingleProductIntoDB(productId, updateData);
+        res.json({
+            status: true,
+            message: 'Product updated successfully',
+            data,
+            updateData,
+        });
+    }
+    catch (err) {
+        res.json({
+            success: false,
+            message: 'Product created failed',
+            err,
+        });
+    }
+});
+const deleteSingleProducts = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const productId = req.body.productId;
+        const data = yield Products_services_1.ProductsServices.deleteSingleProductIntoDB(productId);
+        res.json({
+            status: true,
+            message: 'Products retrieved successfully',
             data,
         });
     }
@@ -48,5 +105,8 @@ const getProducts = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
 const productControlor = {
     createProducts,
     getProducts,
+    getSingleProducts,
+    putSingleProducts,
+    deleteSingleProducts,
 };
 exports.default = productControlor;

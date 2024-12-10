@@ -9,4 +9,4 @@ router.get('/products/:productId', productControlor.getSingleProducts);
 router.put('/products/:productId', productControlor.putSingleProducts);
 router.delete('/products/:productId', productControlor.deleteSingleProducts);
 
-export const StudentRoute = router;
+export const ProductRoute = router;

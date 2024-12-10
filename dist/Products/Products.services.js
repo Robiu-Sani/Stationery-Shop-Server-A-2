@@ -22,7 +22,22 @@ const getProductIntoDB = () => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield Products_model_1.default.find();
     return result;
 });
+const getSingleProductIntoDB = (id) => __awaiter(void 0, void 0, void 0, function* () {
+    const result = yield Products_model_1.default.findOne({ id });
+    return result;
+});
+const deleteSingleProductIntoDB = (id) => __awaiter(void 0, void 0, void 0, function* () {
+    const result = yield Products_model_1.default.deleteOne({ id });
+    return result;
+});
+const putSingleProductIntoDB = (id, updateData) => __awaiter(void 0, void 0, void 0, function* () {
+    const result = yield Products_model_1.default.findOneAndUpdate({ id }, { $set: updateData }, { new: true });
+    return result;
+});
 exports.ProductsServices = {
     createProductIntoDB,
     getProductIntoDB,
+    getSingleProductIntoDB,
+    putSingleProductIntoDB,
+    deleteSingleProductIntoDB,
 };

@@ -21,7 +21,6 @@ function main() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             yield mongoose_1.default.connect(config_1.default.database_url);
-            console.log("connecting mongodb successfull");
         }
         catch (err) {
             console.log(err);
