@@ -12,6 +12,8 @@ This is a full-stack API for a **Stationery Shop**, developed using **Express**,
 
 ## Project Setup
 
+api link = https://store-server-a2.vercel.app/
+
 ### Prerequisites
 
 - **Node.js** (v20 or higher)
