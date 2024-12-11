@@ -14,13 +14,13 @@ This is a full-stack API for a **Stationery Shop**, developed using **Express**,
 
 ### Prerequisites
 
-- **Node.js** (v16 or higher)
+- **Node.js** (v20 or higher)
 - **MongoDB** (either local or a cloud instance like MongoDB Atlas)
 - **npm** or **yarn**
 
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/stationery-shop-api.git
-cd stationery-shop-api
+git clone https://github.com/Robius-Sani/Stationery-Shop-Server-A-2.git
+cd Stationery-Shop-Server-A-2
 ```
